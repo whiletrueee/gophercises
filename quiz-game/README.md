@@ -42,7 +42,17 @@ If default values are being used then no need to pass them
 ```go run main.go```
 
 
+## Learning Source
 
+This program is based on the concepts and exercises from the [Gophercises](https://gophercises.com/) course by Jon Calhoun. Gophercises is a great resource for learning Go through practical exercises.
+
+## Blog Post
+
+I have also written a detailed blog post about this quiz game, explaining how it works and the concepts behind it. You can read the blog post [here](https://zeal.hashnode.dev/getting-go-routine-via-quiz-game).
+
+## Conclusion
+
+This quiz game serves as a practical example of Go routines and channels, demonstrating how to manage concurrent operations in a Go program. By understanding this example, you can gain insights into Go's powerful concurrency model and how to apply it in real-world applications.
 
 
 
