@@ -1,0 +1,35 @@
+# Ignore binaries for programs and plugins
+**/*.exe
+**/*.exe~
+**/*.dll
+**/*.so
+**/*.dylib
+**/*.test
+
+# Ignore output of the go coverage tool
+**/*.out
+
+# Ignore Go workspace file
+**/go.work
+
+# Ignore dependency directories (uncomment if you have vendored dependencies)
+# **/vendor/
+
+# Ignore IDE/Editor directories and files
+**/.vscode/
+**/.idea/
+**/*.iml
+
+# Ignore Go build artifacts
+**/*.o
+**/*.a
+
+# Ignore debug and development logs
+**/*.log
+
+# Ignore coverage reports
+**/*.cov
+
+# Ignore local environment files
+**/.env
+**/.env.*
