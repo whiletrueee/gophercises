@@ -37,6 +37,11 @@ This program is a command-line quiz game developed in Go. The game reads a serie
 
 ```go run main.go -csv=yourfile.csv -limit=60```
 
+If default values are being used then no need to pass them 
+
+```go run main.go```
+
+
 
 
 
