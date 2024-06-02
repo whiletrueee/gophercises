@@ -1,4 +1,4 @@
-# Go Exercises Repository
+# Go Exercises
 
 Welcome to my Go exercises repository! This repository contains a collection of Go projects and exercises that I've completed as part of my learning journey. Each exercise is organized into its own folder, where you can find the code, READMEs, and any additional resources related to that exercise.
 
