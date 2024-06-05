@@ -49,53 +49,6 @@ func main() {
 	if err != nil {
 		panic(err)
 	}
-	fmt.Println("shorten_url", shorten_url)
-
-	// Execute the query
-
-	// mux := defaultMux()
-
-	// pathsToUrls := map[string]string{
-	// 	"/urlshort-godoc": "https://godoc.org/github.com/gophercises/urlshort",
-	// 	"/yaml-godoc":     "https://godoc.org/gopkg.in/yaml.v2",
-	// }
-
-	// mapHandler := urlshort.MapHandler(pathsToUrls, mux)
-
-	// yaml := `
-	// - path: /urlshort
-	//   url: https://github.com/gophercises/urlshort
-	// - path: /urlshort-final
-	//   url: https://github.com/gophercises/urlshort/tree/solution
-	// `
-
-	// yamlHandler, err := urlshort.YAMLHandler([]byte(yaml), mapHandler)
-	// if err != nil {
-	// 	panic(err)
-	// }
-
-	fmt.Println("Starting server on 8080")
-	// http.ListenAndServe(":8080", yamlHandler)
+	fmt.Println("shorten_url", sk, shorten_url)
 
 }
-
-// func defaultMux() *http.ServeMux {
-// 	mux := http.NewServeMux()
-// 	mux.HandleFunc("/", hello)
-// 	return mux
-// }
-
-// func hello(w http.ResponseWriter, r *http.Request) {
-// 	fmt.Fprintln(w, "Hello, world!")
-// }
-
-// func MapHandler(pathsToUrls map[string]string, fallback http.Handler) http.HandlerFunc {
-// 	return func(w http.ResponseWriter, r *http.Request) {
-// 		path := r.URL.Path
-// 		if dest, ok := pathsToUrls[path]; ok {
-// 			http.Redirect(w, r, dest, http.StatusFound)
-// 			return
-// 		}
-// 		fallback.ServeHTTP(w, r)
-// 	}
-// }
