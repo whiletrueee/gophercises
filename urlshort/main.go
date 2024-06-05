@@ -1,10 +1,14 @@
 package main
 
 import (
+	"context"
 	"database/sql"
 	"flag"
 	"fmt"
 
+	"gophercises/urlshort/db/pg_db"
+
+	"github.com/aidarkhanov/nanoid"
 	_ "github.com/go-sql-driver/mysql"
 	"go.bryk.io/pkg/ulid"
 )
@@ -18,19 +22,34 @@ func main() {
 		return
 	}
 	// Open up our database connection.
-	dbConn, err := sql.Open("mysql", "root:231304@tcp(0.0.0.0:3306)/test")
+	dbConn, err := sql.Open("mysql", "root:231304@tcp(0.0.0.0:3306)/url")
 	if err != nil {
 		panic(err.Error())
 	}
 	defer dbConn.Close()
 
-	queries := db.New(dbConn)
+	queries := pg_db.New(dbConn)
+
+	ctx := context.Background()
+	// Create a table
 
 	ulid, err := ulid.New()
 	if err != nil {
 		panic(err)
 	}
-	fmt.Println("Success!", *original_url, ulid)
+	sk, err := nanoid.Generate("qwert", 5)
+	if err != nil {
+		panic(err)
+	}
+	shorten_url, err := queries.CreateShortURL(ctx, pg_db.CreateShortURLParams{
+		ID:          ulid.String(),
+		OriginalUrl: *original_url,
+		ShortKey:    sk,
+	})
+	if err != nil {
+		panic(err)
+	}
+	fmt.Println("shorten_url", shorten_url)
 
 	// Execute the query
 
@@ -68,4 +87,15 @@ func main() {
 
 // func hello(w http.ResponseWriter, r *http.Request) {
 // 	fmt.Fprintln(w, "Hello, world!")
+// }
+
+// func MapHandler(pathsToUrls map[string]string, fallback http.Handler) http.HandlerFunc {
+// 	return func(w http.ResponseWriter, r *http.Request) {
+// 		path := r.URL.Path
+// 		if dest, ok := pathsToUrls[path]; ok {
+// 			http.Redirect(w, r, dest, http.StatusFound)
+// 			return
+// 		}
+// 		fallback.ServeHTTP(w, r)
+// 	}
 // }

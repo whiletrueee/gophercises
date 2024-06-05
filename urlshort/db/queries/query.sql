@@ -4,7 +4,7 @@ WHERE original_url = ?;
 
 -- name: CreateShortURL :execresult
 INSERT INTO url_shortener (
-  id, original_url, shortkey
+  id, original_url, short_key
 ) VALUES (
  ?, ?, ?
 );

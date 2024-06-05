@@ -12,7 +12,7 @@ import (
 
 const createShortURL = `-- name: CreateShortURL :execresult
 INSERT INTO url_shortener (
-  id, original_url, shortkey
+  id, original_url, short_key
 ) VALUES (
  ?, ?, ?
 )
@@ -21,15 +21,15 @@ INSERT INTO url_shortener (
 type CreateShortURLParams struct {
 	ID          string
 	OriginalUrl string
-	Shortkey    string
+	ShortKey    string
 }
 
 func (q *Queries) CreateShortURL(ctx context.Context, arg CreateShortURLParams) (sql.Result, error) {
-	return q.db.ExecContext(ctx, createShortURL, arg.ID, arg.OriginalUrl, arg.Shortkey)
+	return q.db.ExecContext(ctx, createShortURL, arg.ID, arg.OriginalUrl, arg.ShortKey)
 }
 
 const getURL = `-- name: GetURL :one
-SELECT id, original_url, shortkey, hit_count, created_at FROM url_shortener
+SELECT id, original_url, short_key, hit_count, created_at FROM url_shortener
 WHERE original_url = ?
 `
 
@@ -39,7 +39,7 @@ func (q *Queries) GetURL(ctx context.Context, originalUrl string) (UrlShortener,
 	err := row.Scan(
 		&i.ID,
 		&i.OriginalUrl,
-		&i.Shortkey,
+		&i.ShortKey,
 		&i.HitCount,
 		&i.CreatedAt,
 	)

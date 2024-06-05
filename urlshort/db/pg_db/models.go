@@ -11,7 +11,7 @@ import (
 type UrlShortener struct {
 	ID          string
 	OriginalUrl string
-	Shortkey    string
+	ShortKey    string
 	HitCount    sql.NullInt32
 	CreatedAt   sql.NullTime
 }
