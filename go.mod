@@ -12,5 +12,6 @@ require (
 	github.com/gophercises/urlshort v0.0.0-20190723121003-cc800dbaf411 // indirect
 	github.com/rb-go/namegen v1.1.0 // indirect
 	go.bryk.io/pkg v0.0.0-20240525190736-488a668a3012 // indirect
+	golang.org/x/net v0.26.0 // indirect
 	gopkg.in/yaml.v2 v2.4.0 // indirect
 )

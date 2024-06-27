@@ -1,7 +1,0 @@
-CREATE TABLE IF NOT EXISTS url_shortener (
-  id CHAR(26) PRIMARY KEY,
-  original_url TEXT NOT NULL,
-  short_key VARCHAR(10) NOT NULL UNIQUE,
-  hit_count INT DEFAULT 0,
-  created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
-);
